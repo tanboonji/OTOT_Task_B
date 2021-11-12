@@ -25,7 +25,7 @@ const ERROR_NO_NAME = "Bad Request. No name provided.";
 const ERROR_NO_EMAIL = "Bad Request. No email provided.";
 
 const getAllCustomer = asyncHandler(async (req, res) => {
-  pool.query("SELECT * FROM Customer ORDER BY id ASC")
+  await pool.query("SELECT * FROM Customer ORDER BY id ASC")
     .then(result => { res.status(200).json(result.rows); })
     .catch(error => { res.status(500).send(error) });
 });
@@ -96,7 +96,7 @@ const deleteCustomer = asyncHandler(async (req, res) => {
     res.status(500).send(error);
   }
 
-  pool.query("DELETE FROM Customer WHERE id = $1", [id])
+  await pool.query("DELETE FROM Customer WHERE id = $1", [id])
   .then(result => { res.status(200).send("OK"); })
   .catch(error => { res.status(500).send(error); });
 });
