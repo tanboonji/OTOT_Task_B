@@ -1,7 +1,7 @@
 # OTOT_Assignment_TaskB
 
-## Travis CI
+## Travis (CI)
 ## Mocha, Chai & Chai HTTP
 ## PostgreSQL & ElephantSQL
 ## React
-## Heroku
+## Heroku (CD)
