@@ -12,21 +12,18 @@ env:
   - PGPASSWORD=postgres
   - PGHOST=localhost
   - PGDATABASE=postgres
-
 before_script:
 - psql -c "CREATE TABLE Customer (id INTEGER PRIMARY KEY, name VARCHAR NOT NULL, email VARCHAR NOT NULL);" -U postgres
 - psql -c "INSERT INTO Customer (id, email, name) VALUES (1, 'boonji@gmail.com', 'Boon Ji');" -U postgres
 - psql -c "INSERT INTO Customer (id, email, name) VALUES (2, 'peterparker@gmail.com', 'Peter Parker');" -U postgres
 - psql -c "INSERT INTO Customer (id, email, name) VALUES (3, 'tonystark@gmail.com', 'Tony Stark');" -U postgres
 - psql -c "SELECT * from Customer;" -U postgres
-
 script:
 - npm test
-
 deploy:
   provider: heroku
   api_key:
-    secure: xTMLLWcOb8+n2W21cJwrt/QEvXHj1v4ETL/fOW7ej5Q5cveek5u8ZYDrn9U/5lJuuPIPiC3i3YVVn4ViSPXXF0/fCBtZvY7K6EspWFufypRXQPOsgkIF/sBobCGTo5HrhByNS0iwy/PLKoJ2MJ8nwcVECjVSfetQwv1EXFdnbacgaB32GSS1nSnugkKL+oyk1RlbC+a/eWPhFdpH2K1aiizcPO3MQIbHNgxe2Jm2uT/X3mZ67BSt+VlD7KhLUjMYS1F4to/9f4DmhdJYPXJB8lNZm2/xNCy33EPHyi3rmA1w2imNiHIS7kLKZiS9s+Qk7YGKbW54082ZwoY7MELaHCLctYYhJQxV9zPpwAsQAwAUXnFbkixxuTEe8TcysKB9KYA+RYep15Bu43CbCpYfIuJv+LZiOREQBjEGmbOIa871l4rkEUsS2qKF8rrF5qnL6QiygWfQvhM+E8kL5/eqEImn7b2YtiZQWwU648zfztWRJHV8W0ndTimH9QXL0vQ50hqAMEuWBklu/dLK9XzpugtP9BzK1/PzIDf7GXltqyeq79MyJnWniXHiteoNqBZrLDOlxLZy9JH9VAptBFr2LMxQbz4rUlKaoxwxJmmwK4wkzJIlTZuVy+0KCeg8SOhOPZ+PP2Va5Ybn5RW0FFOdyGoVV1veuFkZo8GLM/NU5H8=
+    secure: sB952jCiG4i1aLkcuLgiAUFHp2TORwG62wG/FLdpgBU/47s63XP5J2o1KTil6EbQwb4EkTIjdjIkumlPf7VkH+pNW4Rm3J4vkJXAKq+VfoXDnW9kQjqM7mN/A4oehXsArTrGDquPWU4lVo5mgo0BcljNGyBSoHeA0yNmXCIcHSNHDFg6xwSZU9Ks70QQW/TBvnWcChDziitrFCdDRH60nYZeLCCZt2KSJRiFnJ8Fe6OA7YR1sAY3zM9NCAGdWK/QDurottKVvTqKbnIqwJ2S84YUGxuToN+BvY+XDGmiEkmJJLRTF/SQiPbGTz+VnIDo2zq+bPj1263hHBQexw+X5cZYKJZXvr/VV+jcVH8UvA20JUdTS4RVRW28A4fInTO8PB2g2rud0S34T8kCprF1vLVPvd0MwjClUkYWxPu0gp0rwLZdvl2iWZXZefsG0mCRbRz7GZAjmkgc+GJNNJoEW8NgcTd1cdGaHQ92Dx3lqxKSRywo8cuwEfTA4o58Dk9TOW1b1I1jGYy2R5ikOk2vDEr/g35MuO/TExr7s6XArLB/rldNaEIQHM4fokMthuMc4j6TvbSG2+vqlrMou/JuI12ouVacv0ePQv2anQd7tBsda5qLMQ0ptS/xmt41jkeaUz4UszG5TpiaX8XyENT1RK+zNzLCh8bp99YJ/T9NxXE=
   app: tanboonji-cs3219-otot-taskb
   on:
     branch: main
