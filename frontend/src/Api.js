@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'https://tanboonji-cs3219-otot-taskb.herokuapp.com';
+const API_URL = 'https://tanboonji-otot-taskb.herokuapp.com';
 
-export async function getAllUsers() {
+export async function getAllCustomer() {
     try {
         const res = await axios.get(API_URL + '/getAllCustomer/');
         return res;
@@ -11,7 +11,7 @@ export async function getAllUsers() {
     }
 }
 
-export async function geCustomer(id) {
+export async function getCustomer(id) {
     try {
         const res = await axios.get(API_URL + '/getCustomer/' + id);
         return res;
