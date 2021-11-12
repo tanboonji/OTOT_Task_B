@@ -18,10 +18,22 @@ describe("Customer", () => {
     });
   });
 
-  describe("(GET) /getCustomer/:id", () => {
-    it("should get customer with customer id 1", (done) => {
+  describe("(POST) /createCustomer", () => {
+    it("should create a customer with customer id 999", (done) => {
       chai.request(app)
-        .get("/getCustomer/1")
+        .post("/createCustomer")
+        .send({ id: "999", name: "Mocha", email: "mocha@gmail.com" })
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
+  describe("(GET) /getCustomer/:id", () => {
+    it("should get customer with customer id 999", (done) => {
+      chai.request(app)
+        .get("/getCustomer/999")
         .end((err, res) => {
           res.should.have.status(200);
           expect(res.body[0]).to.have.all.keys("id", "email", "name");
@@ -30,23 +42,11 @@ describe("Customer", () => {
     });
   });
 
-  describe("(POST) /createCustomer", () => {
-    it("should create a customer with customer id 4", (done) => {
-      chai.request(app)
-        .post("/createCustomer")
-        .send({ id: "4", name: "Mocha", email: "mocha@gmail.com" })
-        .end((err, res) => {
-          res.should.have.status(200);
-          done();
-        });
-    });
-  });
-
   describe("(PUT) /updateCustomer/:id", () => {
-    it("should update customer with customer id 4", (done) => {
+    it("should update customer with customer id 999", (done) => {
       chai.request(app)
         .put("/updateCustomer/4")
-        .send({ id: "4", name: "Chai", email: "chai@gmail.com" })
+        .send({ id: "999", name: "Chai", email: "chai@gmail.com" })
         .end((err, res) => {
           res.should.have.status(200);
           done();
@@ -55,9 +55,9 @@ describe("Customer", () => {
   });
 
   describe("(DELETE) /deleteCustomer/:id", () => {
-    it("should delete customer with customer id 4", (done) => {
+    it("should delete customer with customer id 999", (done) => {
       chai.request(app)
-        .delete("/deleteCustomer/4")
+        .delete("/deleteCustomer/999")
         .end((err, res) => {
           res.should.have.status(200);
           done();
@@ -68,7 +68,7 @@ describe("Customer", () => {
   describe("(GET) /getCustomer/:id", () => {
     it("should get empty customer after deletion", (done) => {
       chai.request(app)
-        .get("/getCustomer/4")
+        .get("/getCustomer/999")
         .end((err, res) => {
           res.should.have.status(200);
           expect(res.body).to.be.an('array').that.is.empty;

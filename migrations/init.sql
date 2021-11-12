@@ -6,6 +6,6 @@ CREATE TABLE Customer (
     name VARCHAR NOT NULL
 );
 
-INSERT INTO Customer (id, email, name) VALUES (2, 'boonji@gmail.com', 'Boon Ji');
-INSERT INTO Customer (id, email, name) VALUES (1, 'peterparker@gmail.com', 'Peter Parker');
+INSERT INTO Customer (id, email, name) VALUES (1, 'boonji@gmail.com', 'Boon Ji');
+INSERT INTO Customer (id, email, name) VALUES (2, 'peterparker@gmail.com', 'Peter Parker');
 INSERT INTO Customer (id, email, name) VALUES (3, 'tonystark@gmail.com', 'Tony Stark');
