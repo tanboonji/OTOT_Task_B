@@ -17,8 +17,6 @@ app.use(
   })
 );
 
-console.log("testing");
-
 app.get('/getAllCustomer', db.getAllCustomer);
 app.get('/getCustomer/:id', db.getCustomer);
 app.post('/createCustomer', db.createCustomer);
