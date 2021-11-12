@@ -74,21 +74,21 @@ function App() {
         <h2>OTOT Task B4</h2>
 
         <h3>Request</h3>
-        <InputGroup className="mb-3" style={{ "width": "20vw" }}>
+        <InputGroup className="mb-3" style={{ "width": "40vw" }}>
           <InputGroup.Text id="basic-addon1" style={{ "min-width": "70px" }}>id</InputGroup.Text>
           <FormControl
             placeholder="Customer ID"
             onChange={(e) => setId(e.target.value)}
           />
         </InputGroup>
-        <InputGroup className="mb-3" style={{ "width": "20vw" }}>
+        <InputGroup className="mb-3" style={{ "width": "40vw" }}>
           <InputGroup.Text id="basic-addon1" style={{ "min-width": "70px" }}>email</InputGroup.Text>
           <FormControl
             placeholder="Customer Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </InputGroup>
-        <InputGroup className="mb-3" style={{ "width": "20vw" }}>
+        <InputGroup className="mb-3" style={{ "width": "40vw" }}>
           <InputGroup.Text id="basic-addon1" style={{ "min-width": "70px" }}>name</InputGroup.Text>
           <FormControl
             placeholder="Customer Name"
